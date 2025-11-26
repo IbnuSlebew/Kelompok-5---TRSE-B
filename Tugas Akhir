@@ -1,1 +1,29 @@
+#include <iostream>
+using namespace std;
 
+// Fungsi menghitung rata-rata
+double hitungRata(double data[], int n) {
+    double total = 0;
+    for (int i = 0; i < n; i++) {
+        total += data[i];
+    }
+    return total / n;
+}
+
+// Fungsi analisis tiap sel
+void analisisSel(double tegangan, double rata) {
+    cout << "Tegangan: " << tegangan << " V -> ";
+
+    if (tegangan > 4.20)
+        cout << "Overvoltage (Perlu Discharge)";
+    else if (tegangan < 3.00)
+        cout << "Undervoltage (Perlu Charge)";
+    else if (tegangan < rata - 0.05)
+        cout << "Balancing: Charge ringan";
+    else if (tegangan > rata + 0.05)
+        cout << "Balancing: Discharge ringan";
+    else
+        cout << "Normal";
+
+    cout << endl;
+}
