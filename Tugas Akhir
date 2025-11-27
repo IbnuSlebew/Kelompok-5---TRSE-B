@@ -27,3 +27,19 @@ void analisisSel(double tegangan, double rata) {
 
     cout << endl;
 }
+
+int main() {
+    int n;
+    int mode;
+    double suhu;
+
+    cout << "=== SMART BATTERY ANALYZER ===\n";
+
+    cout << "Masukkan suhu baterai (°C): ";
+    cin >> suhu;
+
+    if (suhu > 45) {
+        cout <<"\n  SUHU TERLALU TINGGI (" << suhu << "°C)\n";
+        cout <<"  Sistem dimatikan baterai terlalu panas!\n";
+        return 0;  // Menghentikan program
+    }
