@@ -43,3 +43,27 @@ int main() {
         cout <<"  Sistem dimatikan baterai terlalu panas!\n";
         return 0;  // Menghentikan program
     }
+
+ cout << "Masukkan jumlah sel baterai: ";
+    cin >> n;
+
+    cout << "Pilih konfigurasi baterai:\n";
+    cout << "1. Seri\n";
+    cout << "2. Paralel\n";
+    cout << "Pilihan: ";
+    cin >> mode;
+
+    double tegangan[20]; // maksimal 20 sel
+    double total = 0;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Tegangan sel " << i + 1 << " (Volt): ";
+        cin >> tegangan[i];
+        total += tegangan[i];
+    }
+
+    double rata = hitungRata(tegangan, n);
+
+    cout << "\n--- HASIL ANALISIS ---\n";
+    cout << "Rata-rata Tegangan : " << rata << " V\n";
+    cout << "Suhu Baterai : " << suhu << "°C\n";
