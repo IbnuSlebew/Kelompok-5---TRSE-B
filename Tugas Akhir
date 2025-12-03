@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Fungsi menghitung rata-rata
 double hitungRata(double data[], int n) {
     double total = 0;
     for (int i = 0; i < n; i++) {
@@ -10,7 +9,6 @@ double hitungRata(double data[], int n) {
     return total / n;
 }
 
-// Fungsi analisis tiap sel
 void analisisSel(double tegangan, double rata) {
     cout << "Tegangan: " << tegangan << " V -> ";
 
@@ -67,3 +65,21 @@ int main() {
     cout << "\n--- HASIL ANALISIS ---\n";
     cout << "Rata-rata Tegangan : " << rata << " V\n";
     cout << "Suhu Baterai : " << suhu << "°C\n";
+
+ if (mode == 1) {
+        cout << "Konfigurasi : Seri\n";
+        cout << "Tegangan Total : " << total << " V\n\n";
+    } else if (mode == 2) {
+        cout << "Konfigurasi : Paralel\n";
+        cout << "Tegangan Total : " << rata << " V (mendekati tegangan rata-rata)\n\n";
+    }
+
+   
+    for (int i = 0; i < n; i++) {
+        cout << "Sel " << i + 1 << " -> ";
+        analisisSel(tegangan[i], rata);
+    }
+
+    cout << "\nAnalisis selesai.\n";
+    return 0;
+}
